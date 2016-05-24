@@ -12,3 +12,14 @@
         ecd '((3 a) b (2 c) d (3 e))]
     (is (= (encode-modified lst) ecd))))
 
+(deftest test-encode-modified2
+  (let [lst '(a a a b c c d e e e)
+        ecd '((3 a) b (2 c) d (3 e))]
+    (is (= (encode-modified2 lst) ecd))))
+
+(deftest test-encode-modified3
+  (let [lst '(a a a b c c d e e e)
+        ecd '((3 a) b (2 c) d (3 e))]
+    (is (= (encode-modified3 lst) ecd))))
+
+
