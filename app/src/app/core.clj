@@ -27,7 +27,34 @@
            (if(= n 1) val (list n val))) (my-pack coll)))
 
 
-;; TODO: fix pb here of calculating count twice
+;; problem 12
 
-(encode-modified '(a a a a b c c a a d e e e e))
-;; TODO: solve p11 also with core.match
+                                        ; consumes stack...
+(defn my-flatten [x]
+  (reduce
+   (fn [acc e]
+     (if (list? e)
+       (concat acc (my-flatten e))
+       (concat acc (list e)))
+     )
+   '()
+   x
+   ))
+
+(defn decode-modified [coll]
+  (my-flatten (map #(if(and (list? %) (> (count %) 1))
+         (let [n (first %)
+               val (second %)]
+           (repeat n val))
+         (list %)) coll)))
+
+
+(my-flatten '((a a a) (b b b) (c c) (d d d) (e e e))
+
+(decode-modified '((3 a) (1 b) (2 c) (1 d) (3 e)))
+;; lets solve this pb first
+
+(decode-modified '((3 a) b (2 c) d (3 e)))
+
+
+
