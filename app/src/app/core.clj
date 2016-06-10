@@ -1,11 +1,11 @@
 (ns app.core)
 
-;; problem 09 
+;; problem 09
 (defn my-pack [lst]
   (partition-by identity lst))
 
 ;; problem 10
-;; [(n, v)] -> n: nber of occurrences , v value 
+;; [(n, v)] -> n: nber of occurrences , v value
 (defn encode [coll]
   (map #(list (count %) (first %)) (my-pack coll)))
 
@@ -41,16 +41,7 @@
 
 ;(decode-modified '((3 a) b (2 c) d (3 e)))
 
-
-;; Problem 14 
-
-;; Duplicate the elements of a list.
-
-;; (dupli '(a b c c d)) -> (A A B B C C C C D D)
-
-;; use reduce with an accum that concatenates
-
-;; dupli6 = foldl (\acc x -> acc ++ [x,x]) []
+;; Problem 14: Duplicate the elements of a list.
 
 ;; TODO: do another solution with pattern matching like +' def in core.clj
 
@@ -59,8 +50,10 @@
   [coll]
   (reduce #(concat %1 (repeat 2 %2)) '() coll))
 
-(dupli '(a b c c d))
-
-
+;; concatMap (\x -> [x,x])
+;; (defn dupli2
+;;   "Duplicate the elements of a list"
+;;   [coll]
+;;   (concatMap ))
 
 
