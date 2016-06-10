@@ -22,6 +22,8 @@
         res '(a a a b c c d e e e)]
     (is (= (decode-modified lst) res))))
 
-
-
+(deftest test-dupli
+  (let [lst '(a b c c d)
+        res '(a a b b c c c c d d)]
+    (is (= (dupli lst) res))))
 

@@ -42,4 +42,25 @@
 ;(decode-modified '((3 a) b (2 c) d (3 e)))
 
 
+;; Problem 14 
+
+;; Duplicate the elements of a list.
+
+;; (dupli '(a b c c d)) -> (A A B B C C C C D D)
+
+;; use reduce with an accum that concatenates
+
+;; dupli6 = foldl (\acc x -> acc ++ [x,x]) []
+
+;; TODO: do another solution with pattern matching like +' def in core.clj
+
+(defn dupli
+  "Duplicate the elements of a list."
+  [coll]
+  (reduce #(concat %1 (repeat 2 %2)) '() coll))
+
+(dupli '(a b c c d))
+
+
+
 

@@ -14,15 +14,14 @@
 ;; prop_encodeLastElement (NonEmpty xs) = last xs == snd (last (encode xs))
 
 
-(defspec encode-length
-  10
-  (prop/for-all [v (gen/such-that not-empty gen/string)]
-    (= count v (reduce + (map #(first %) (encode v))))))
+;; (defspec encode-length
+;;   10
+;;   (prop/for-all [v (gen/such-that not-empty gen/string)]
+;;     (= count v (reduce + (map #(first %) (encode v))))))
 
+;; (gen/sample (gen/such-that not-empty gen/string))
+;; (reduce + (map #(first %) (encode '(1))))
 
-(gen/sample (gen/such-that not-empty gen/string))
-
-(reduce + (map #(first %) (encode '(1))))
 
 
 
