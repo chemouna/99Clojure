@@ -27,3 +27,11 @@
         res '(a a b b c c c c d d)]
     (is (= (dupli lst) res))))
 
+(deftest test-repli2
+  (let [lst '(a b c c d)
+        res '(a a a b b b c c c c c c d d d)]
+    (is (= (repli2 lst 3) res))))
+
+
+
+

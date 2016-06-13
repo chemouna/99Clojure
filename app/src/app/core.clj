@@ -57,3 +57,27 @@
 ;;   (concatMap ))
 
 
+;; Problem 15
+;; Replicate the elements of a list a given number of times.
+
+;; (repli '(a b c) 3) -> (A A A B B B C C C)
+
+(defn repli
+  "Replicate the elements of a list a given number of times."
+  [coll n]
+  (reduce #(concat %1 (take n (cycle %2))) '() coll))
+
+(defn repli2
+  "Replicate the elements of a list a given number of times."
+  [coll n]
+  (reduce #(concat %1 (repeat n %2)) '() coll))
+
+(defn repli3
+  "Replicate the elements of a list a given number of times."
+  [coll n]
+  (mapcat #(repeat n %1) coll))
+
+(repli3 '(a b c) 3)
+
+
+
