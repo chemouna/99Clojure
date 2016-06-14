@@ -32,6 +32,11 @@
         res '(a a a b b b c c c c c c d d d)]
     (is (= (repli2 lst 3) res))))
 
+(deftest test-repli3
+  (let [lst '(a b c c d)
+        res '(a a a b b b c c c c c c d d d)]
+    (is (= (repli3 lst 3) res))))
+
 
 
 

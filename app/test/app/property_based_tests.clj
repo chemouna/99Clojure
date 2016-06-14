@@ -29,5 +29,8 @@
   (prop/for-all [v (gen/vector gen/any)]
     (= (count (dupli v)) (* (count v) 2))))
 
-
-
+(defspec replitest
+  10
+  (prop/for-all [v (gen/not-empty (gen/vector gen/int))
+                 n gen/int]
+    (= (count(repli v n)) (* (count v) n))))

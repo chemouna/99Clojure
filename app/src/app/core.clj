@@ -77,7 +77,12 @@
   [coll n]
   (mapcat #(repeat n %1) coll))
 
-(repli3 '(a b c) 3)
+;; Problem 16
 
+;; try with partition, flatten .. 
 
+(defn dropEvery
+  " Drop every N'th element from a list."
+  [coll n]
+  (flatten (map butlast (partition 3 "abcdefghik"))))
 
