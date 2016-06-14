@@ -79,10 +79,16 @@
 
 ;; Problem 16
 
-;; try with partition, flatten .. 
-
 (defn dropEvery
   " Drop every N'th element from a list."
   [coll n]
-  (flatten (map butlast (partition 3 "abcdefghik"))))
+  (flatten (map #(take (dec n) %) (partition-all n coll))))
+
+(defn dropEvery2
+  " Drop every N'th element from a list."
+  [coll n]
+  (->> (partition-all n coll)
+       (map (partial take (dec n)))
+       (flatten)))
+
 
